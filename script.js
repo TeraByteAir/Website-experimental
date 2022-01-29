@@ -1,45 +1,26 @@
-function clickFunction() {
-    alert("Wow this is a message made by script.js")
+function transformFunction(x) {
+    x.classList.toggle("animation");
 }
 
-function renderTime() {
-    var mydate = new Date();
-    var year = mydate.getFullYear();
-        if (year < 1000) {
-            year += 1900
-        }
-
-    var month = mydate.getMonth();
-    var daym = mydate.getDate();
-    var dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-    var montharray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",);
-
-    var currentTime = new Date();
-    var h = currentTime.getHours();
-    var m = currentTime.getMinutes();
-    var s = currentTime.getSeconds();
-        if (h == 24) {
-            h = 0;
-        } else if(h > 12) {
-        h = h - 0;
-        }
-
-        if (h < 10) {
-            h = "0" + h;
-        }
- 
-        if (m < 10) {
-            m = "0" + m;
-        }
-
-        if (s < 10){
-            s = "0" + s;
-        }   
-     var myClock = document.getElementById("clockDisplay");
-     myClock.textContent= daym + " "+ montharray[month]+ " " +year+ " | "+ h+ ":" + m + ":" +s;
-     myClock.innerText= daym+ " "+ montharray[month]+ " " +year+ " | "+ h+ ":" + m + ":" +s;
-
-     setTimeout("renderTime()", 1000);
+function OpenandClose() {
+    var y = document.getElementById("navmenufunc");
+    if (y.style.width == "250px") {
+        y.style.width = "0px";
+    } else {
+        y.style.width = "250px";
+    }
 }
 
-renderTime();
+window.onscroll = function() {scrollAnimation()};
+function scrollAnimation() {
+    if (document.body.scrollTop > 7 || document.documentElement.scrollTop > 7) {
+        document.getElementById("headingjs").style.padding= "5px";
+        document.getElementById("headingh1").style.fontSize = "25px";
+        document.getElementById("headingp").style.fontSize= "15px";
+    }
+    else{
+        document.getElementById("headingjs").style.padding= "15spx";
+        document.getElementById("headingh1").style.fontSize= "50px";
+        document.getElementById("headingp").style.fontSize= "25px";
+    }
+}
